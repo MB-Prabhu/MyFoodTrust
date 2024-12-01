@@ -1,23 +1,26 @@
 import React from "react";
 import { Grid, Card, Typography, Button, Box } from "@mui/material";
 import MainNavbar from "./MainNavbar";
-
+// import admin from '../src/../../public/admn.jpeg'
+import user from '../loginimg/user_img.jpg'
+import trust from '../loginimg/trust_img.jpg'
+import admin from '../loginimg/admin.jpg'
 const cardData = [
   {
     title: "Trust Login",
-    image: "https://nwpafoodbank.org/wp-content/uploads/2018/04/grocery-delivery.jpg",
+    image: "https://nwpafoodbank.org/wp-content/uploads/2018/04/grocery-delivery.jpg" || trust,
     link: "/trustlogin",
     description: "Access your trust account and help to prevent the wastage of food...",
   },
   {
     title: "User Login",
-    image: "https://www.happiness.com/community/uploads/monthly_2018_11/best-happiness-apps.jpg.4898f916f7f12eb863d400dcc07d0a9e.jpg",
+    image: "https://www.happiness.com/community/uploads/monthly_2018_11/best-happiness-apps.jpg.4898f916f7f12eb863d400dcc07d0a9e.jpg" || user,
     link: "/userlogin",
     description: "Log in to your user account to explore features and services we provide...",
   },
   {
     title: "Admin Login",
-    image: "https://i.pinimg.com/736x/94/09/7e/94097e458fbb22184941be57aaab2c8f.jpg",
+    image: "https://i.pinimg.com/736x/94/09/7e/94097e458fbb22184941be57aaab2c8f.jpg" || admin,
     link: "/admin",
     description: "Admin access for managing content, trusts, and user accounts.",
   },
