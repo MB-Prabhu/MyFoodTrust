@@ -1,4 +1,3 @@
-/* Reset styles */
 body, html {
   margin: 0;
   padding: 0;
@@ -13,9 +12,10 @@ body, html {
   height: 100%;
 }
 
-/* Login page container styling */
+
+
+/* 
 .login-page-container {
-  /* border: 2px solid black; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,9 +26,7 @@ body, html {
   margin: 0;
 }
 
-/* Card styling */
 .login-card {
-  /* border: 2px solid black; */
   width: 100%;
   max-width: 300px;
   border-radius: 16px;
@@ -40,8 +38,7 @@ body, html {
   transform: scale(1.05);
 }
 
-/* Center button */
 .card-button {
   margin: auto;
   
-}
+} */
