@@ -148,7 +148,7 @@ const HomePage = () => {
                     right: "5%",
                     width: { xs: "50%", sm: "70%", md: "90%" }, // Adjust width
                     zIndex: 3,
-                    fontSize: { lg: "24px", sm: "20px", md: "18px" , xs: "16px" }, // Adjust font size
+                    fontSize: { lg: "24px", sm: "18px", md: "18px" , xs: "16px" }, // Adjust font size
                   }}
                 >
                   Login
