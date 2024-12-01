@@ -43,7 +43,7 @@ function App() {
           <Inbox />
         </ProtectedRoute>} />
 
-        <Route path="/contact" element={<ContactUs/>} />
+        {/* <Route path="/contact" element={<ContactUs/>} /> */}
 
 
         <Route path="/trust" element={<TrustPage />} />
@@ -84,7 +84,7 @@ function App() {
         </ProtectedRoute>} />
 
         <Route path="/set" element={<SetPage />} />
-        
+
      <Route path='*' element={<PageNotFound />}/>
       </Routes>
 
