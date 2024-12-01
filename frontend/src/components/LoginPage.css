@@ -1,0 +1,47 @@
+/* Reset styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* Login page container styling */
+.login-page-container {
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  margin: 0;
+}
+
+/* Card styling */
+.login-card {
+  /* border: 2px solid black; */
+  width: 100%;
+  max-width: 300px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.login-card:hover {
+  transform: scale(1.05);
+}
+
+/* Center button */
+.card-button {
+  margin: auto;
+  
+}
