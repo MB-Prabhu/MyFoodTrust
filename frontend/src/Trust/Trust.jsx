@@ -203,7 +203,7 @@ const Trust = () => {
     }
    }
    catch(err){
-    console.log(err.response?.data?.msg)
+    console.log(err.response?.data?.message)
    }
    finally{
     setLoading(false)

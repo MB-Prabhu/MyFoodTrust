@@ -84,6 +84,7 @@ function App() {
         </ProtectedRoute>} />
 
         <Route path="/set" element={<SetPage />} />
+        
      <Route path='*' element={<PageNotFound />}/>
       </Routes>
 
