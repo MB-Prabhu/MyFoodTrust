@@ -24,17 +24,17 @@ const UserloginNavbar = () => {
             User Login
           </Typography>
           <Button color="inherit" onClick={() => navigate('/')}
-            sx={{fontSize: {xs:"16px", sm: "18px", lg: "21px"}, fontWeight:{lg:"600", sm: "600", xs: "500"}}}
+            sx={{fontSize: {xs:"16px", sm: "18px", lg: "21px"}, textTransform: 'lowercase'}}
             >
             Home
           </Button>
-          <Button color="inherit" onClick={() => navigate('/contact')}
-            sx={{fontSize: {xs:"16px", sm: "18px", lg: "21px"}, fontWeight:{lg:"600", sm: "600", xs: "500"}}}
+          {/* <Button color="inherit" onClick={() => navigate('/contact')}
+            sx={{fontSize: {xs:"16px", sm: "18px", lg: "21px"}, textTransform: 'lowercase'}}
             >
             Contact Us
-          </Button>
+          </Button> */}
           <Button color="inherit" onClick={() => navigate('/user')}
-            sx={{fontSize: {xs:"16px", sm: "18px", lg: "21px"}, fontWeight:{lg:"600", sm: "600", xs: "500"}}}
+            sx={{fontSize: {xs:"16px", sm: "18px", lg: "21px"}, textTransform: 'lowercase'}}
             >
             Registration
           </Button>

@@ -390,9 +390,9 @@ function TrustPage() {
           <Button color="inherit" onClick={() => navigate('/')}>
             Home
           </Button>
-          <Button color="inherit" onClick={() => navigate('/contact')}>
+          {/* <Button color="inherit" onClick={() => navigate('/contact')}>
             Contact Us
-          </Button>
+          </Button> */}
           <Button color="inherit" onClick={() => navigate('/trustlogin')}>
             Login
           </Button>
