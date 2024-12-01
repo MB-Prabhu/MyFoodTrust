@@ -29,11 +29,10 @@ function UserPage() {
   });
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
 
   const handleChange = (e) => {
-    console.log(formData);
-
     const { name, value, type, files } = e.target;
 
   if (name === 'image') {
@@ -49,8 +48,16 @@ function UserPage() {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true)
+
+    if (formData.phoneNumber.length !== 10){
+        setIsSubmitting(false)
+        setErrorMessage('Phone number should be 10 digits only');
+        return;
+      }
 
     if (formData.password !== formData.confirmPassword) {
+    setIsSubmitting(false)
       setErrorMessage('Passwords do not match!');
       return;
     }
@@ -71,6 +78,7 @@ function UserPage() {
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );
 
+      await setErrorMessage("")
       setSuccessMessage(response.data.message || 'Registration successful!');
       setFormData({
         firstName: '',
@@ -84,12 +92,15 @@ function UserPage() {
       });
       setImagePreview(null);
 
-      setTimeout(() => navigate('/userlogin'), 2000);
+      setTimeout(() => navigate('/userlogin'), 1000);
     } catch (error) {
       console.log(error)
       console.log(error.message)
       console.log(error.response.data.message)
       setErrorMessage(error.response?.data?.error || 'Something went wrong!');
+    }
+    finally{
+      setIsSubmitting(false)
     }
   };
 
@@ -128,17 +139,17 @@ function UserPage() {
             Registration Form
           </Typography>
 
-          {/* {errorMessage && (
+          {errorMessage && (
             <Alert severity="error" sx={{ marginBottom: 2 }}>
               {errorMessage || "An unknown error occurred!"}
             </Alert>
-          )}
+          )} 
 
           {successMessage && (
             <Alert severity="success" sx={{ marginBottom: 2 }}>
               {successMessage || "Registration successful!"}
             </Alert>
-          )} */}
+          )}
 
           <form onSubmit={handleSubmit}>
             <Grid container spacing={2}>
