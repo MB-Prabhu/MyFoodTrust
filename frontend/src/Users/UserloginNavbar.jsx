@@ -20,7 +20,7 @@ const UserloginNavbar = () => {
     <div>
              <AppBar position="static" sx={{ backgroundColor: '#1976d2' }}>
         <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" sx={{ flexGrow: 1 , fontSize: {xs:"18px", sm: "22px", lg: "28px"}, fontWeight:{lg:"600", sm: "600", xs: "500"}}}>
             User Login
           </Typography>
           <Button color="inherit" onClick={() => navigate('/')}>
