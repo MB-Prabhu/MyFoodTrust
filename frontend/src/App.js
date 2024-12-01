@@ -83,7 +83,7 @@ function App() {
           <Transactions />
         </ProtectedRoute>} />
 
-        <Route path="/set" element={<SetPage />} />
+        {/* <Route path="/set" element={<SetPage />} /> */}
 
      <Route path='*' element={<PageNotFound />}/>
       </Routes>

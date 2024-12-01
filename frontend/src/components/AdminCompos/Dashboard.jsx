@@ -108,9 +108,9 @@ const [totalTransactions, setTotalTransactions] = useState(0)
          <h1 className='admin-title'>Welcome, Admin</h1>
           <div className="header-actions">
             <input type="search" placeholder="Search..." className="search-input" />
-            <button className="icon-button">
+            {/* <button className="icon-button">
               <Bell />
-            </button>
+            </button> */}
           </div>
          </div>
         </header>
@@ -120,16 +120,17 @@ const [totalTransactions, setTotalTransactions] = useState(0)
           <div className="card-grid">
             <div className="card">
               <div className="card-header">
-                <h3>Total Trust</h3>
+                <h4>Total Trust</h4>
+                <HandHeart />
               </div>
               <div className="card-content">
                 <div className="card-value">{totalTrust}</div>
-                <p className="card-subtext">updated last month</p>
+                <p className="card-subtext">No of trusts in application</p>
               </div>
             </div>
             <div className="card">
               <div className="card-header">
-                <h3>Users</h3>
+                <h4>Total Users</h4>
                 <svg viewBox="0 0 24 24" className="card-icon">
                   <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
@@ -138,12 +139,12 @@ const [totalTransactions, setTotalTransactions] = useState(0)
               </div>
               <div className="card-content">
                 <div className="card-value">{totalUser}</div>
-                <p className="card-subtext">Updated 2 minutes ago</p>
+                <p className="card-subtext">No of users in application</p>
               </div>
             </div>
             <div className="card">
               <div className="card-header">
-                <h3>Transaction</h3>
+                <h4>Total Transaction</h4>
                 <svg viewBox="0 0 24 24" className="card-icon">
                   <rect width="20" height="14" x="2" y="5" rx="2" />
                   <path d="M2 10h20" />
@@ -151,7 +152,7 @@ const [totalTransactions, setTotalTransactions] = useState(0)
               </div>
               <div className="card-content">
                 <div className="card-value">{totalTransactions}</div>
-                <p className="card-subtext">Updated 2 minutes ago</p>
+                <p className="card-subtext">successfull transactions</p>
               </div>
             </div>
             {/* <div className="card">
@@ -168,11 +169,11 @@ const [totalTransactions, setTotalTransactions] = useState(0)
             </div> */}
           </div>
           <div className="chart-activities-grid">
-            <div className="card">
-              <div className="card-header">
+            <div className="card-sub">
+              <div className="card-header-sub">
                 <h3>Overview</h3>
               </div>
-              <div className="card-content">
+              <div className="card-content-sub">
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
@@ -185,11 +186,11 @@ const [totalTransactions, setTotalTransactions] = useState(0)
                 </ResponsiveContainer>
               </div>
             </div>
-            <div className="card">
-              <div className="card-header">
+            <div className="card-sub">
+              <div className="card-header-sub">
                 <h3>History</h3>
               </div>
-              <div className="card-content">
+              <div className="card-content-sub">
                 <ul className="activity-list">
                   <li className="activity-item">
                     <span className="activity-indicator blue"></span>

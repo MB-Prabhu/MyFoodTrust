@@ -163,7 +163,7 @@ const AllUser = () => {
 
                 {/* Dashboard Content */}
                 <main className="dashboard-content">
-                    <div className="card-grid">
+                    <div className="card-grid-people">
 
                     {loading && <div style={{fontSize: "24px", fontWeight: "600"}}>Loading Please wait</div>}
                     {!loading && errorMessage && <div style={{fontSize: "18px", fontWeight: "600"}}>{errorMessage}</div>}
