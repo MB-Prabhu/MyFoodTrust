@@ -19,7 +19,6 @@ let adminLogin = async (req, res)=>{
             console.log(admintoken)
             if(admintoken){
                 let {_id} =  jwt.verify(admintoken, process.env.JWT_ADMIN_SECREAT_KEY)
-                // console.log(decodedData)
                 if(_id){
                     throw new Error("admin already loggedIn")
                 }
@@ -34,12 +33,6 @@ let adminLogin = async (req, res)=>{
             if(password != isExists.password){
                 throw new Error("incorrect password")
             }
-
-        //    let isMatching = await bcrypt.compare(password, isExists.password)
-
-        //    if(!isMatching){
-        //     throw new Error("incorrect password")
-        //    }
 
             let token = await jwt.sign({_id: isExists._id,  role: 'admin'}, process.env.JWT_ADMIN_SECREAT_KEY, {expiresIn: process.env.JWT_ADMIN_TOKEN_EXPIRY})
             res.cookie("admintoken", token, {expires: new Date(Date.now() + 20 * 500000)})
@@ -59,16 +52,13 @@ let adminLogout = async (req, res)=>{
 let getUsersAdmin = async (req, res)=>{
     try{
 let allowedFields = ["Name", "phone", "email", "address", "image", "role"]
-            // let user = req.user
-            
-            // console.log(req.params)
+    
             let limit = (req.params.limit > 20 ? 10 : req.params.limit) || 10
             let page = req.params.page || 1
             let skip = (page-1) * limit
 
             let data = await UserModel.find({}).skip(skip).limit(limit).select(allowedFields)
             res.status(200).json({msg: "Users data fetched", page, limit, data})
-            // res.status(200).json({msg: "Users data fetched"})
         
     }
     catch(err){
@@ -136,21 +126,11 @@ let searchUser = async (req, res)=>{
 let allowedFields = ["Name", "phone", "email", "address", "image", "role"]
 
         let search = req.query.search
-        // let sort = req.query.sort
 
         let limit = req.query.limit > 20 ? 20 : req.query.limit || 10
         let page = req.query.page || 1
-        
-        // let totalDocuments = await UserModel.countDocuments()
-        // let totalDocumentsPerRequest = limit * page
-        
-        // if(totalDocumentsPerRequest > totalDocuments ){
-        //     if(totalDocumentsPerRequest % limit !== 0)
-        //     throw new Error("Not Enough data's are there...")
-        // }
 
         let totalDocuments = await UserModel.countDocuments();
-        // console.log(totalDocuments)
 
         let totalPages = Math.ceil(totalDocuments / limit);
 
@@ -159,15 +139,11 @@ let allowedFields = ["Name", "phone", "email", "address", "image", "role"]
         }
 
         let skip = (page -1)* limit
-        // console.log(search)
 
         const regex = new RegExp(search, "i"); // 'i' makes it case-insensitive
 
-        // Find documents where the `name` field matches the regex
         const data = await UserModel.find({ Name: { $regex: regex } }).skip(skip).limit(limit).select(allowedFields)
 
-    //  let data =  await UserModel.find({Name: {$regex: search, $options: "i"}}).skip(skip).limit(limit)
-        // console.log(search)
        if(data.length==0){
         throw new Error("No Users Available")
        }
@@ -186,12 +162,7 @@ let searchTrust = async (req, res)=>{
     let limit = req.query.limit || 10
     let skip = (page-1) * limit
 
-    // if (!search) {
-    //     throw new Error("Search query is required");
-    //  }
-
     let totalDocuments = await TrustModel.countDocuments();
-    // console.log(totalDocuments)
 
     let totalPages = Math.ceil(totalDocuments / limit);
 
@@ -200,11 +171,8 @@ let searchTrust = async (req, res)=>{
     }
 
     const regex = new RegExp(search, "i"); // 'i' makes it case-insensitive
-    // console.log(regex)
-    // Find documents where the `name` field matches the regex
+   
     const data = await TrustModel.find({ trustName: { $regex: regex } }).skip(skip).limit(limit).select(allowedFields)
-
-    // let data = await TrustModel.find({trustName: {$regex: search, $options: "i"}}).skip(skip).limit(limit)
 
     if(!data.length>0){
         throw new Error("No Trusts Available")
