@@ -10,7 +10,8 @@ function AdminPage() {
     })
 
     const [errorMessage, setErrorMessage] = useState("")
-
+    const [loading, setLoading] = useState(false)
+    
     let handleChange = ({target: {name, value}})=>{
       setFormAdmin({...formAdmin, [name]: value})
     }
@@ -18,7 +19,7 @@ function AdminPage() {
     let handleSubmit = async (e)=>{
       try{
         e.preventDefault()
-
+        setLoading(true)
         if(!(formAdmin.email)){
           setErrorMessage("please enter the email") 
           return;
@@ -52,6 +53,9 @@ function AdminPage() {
           setErrorMessage("A network error occurred. Please try again.");
         }
       }
+      finally{
+        setLoading(false)
+      }
    
     }
 
@@ -62,7 +66,9 @@ function AdminPage() {
         <Typography variant="h4" className="trust-login-title" >
           Admin Login
         </Typography>
-        {errorMessage ? 
+        {loading && <div style={{fontSize: "22px", textAlign: "center", color: "blue"}}>Loading...</div>}
+
+        {!loading && errorMessage ? 
           <Typography variant='h5'
             style={{textAlign: "center", fontSize: "20px", color: "red", padding: "7px"}}>{errorMessage}</Typography>
           : null

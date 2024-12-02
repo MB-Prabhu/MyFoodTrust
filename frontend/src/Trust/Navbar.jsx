@@ -42,7 +42,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       const { data } = await axios.post(
-        'http://localhost:4000/api/trust/logouttrust',
+        `${process.env.REACT_APP_API_URL}/api/trust/logouttrust`,
         {},
         { withCredentials: true }
       );

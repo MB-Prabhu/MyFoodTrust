@@ -14,6 +14,7 @@ const TrustLogin = () => {
   })
 
   const [errorMessage, setErrorMessage] = useState("")
+  const [loading, setLoading] = useState(false)
 
   let handleChange = ({target: {name, value}}) => {
     setFormTrust({...formTrust, [name]: value})
@@ -22,7 +23,7 @@ const TrustLogin = () => {
   let handleSubmit = async (e) => {
     try {
       e.preventDefault()
-
+      setLoading(true)
       if (!(formTrust.trustEmail)) {
         setErrorMessage("Please enter the email") 
         return;
@@ -58,6 +59,9 @@ const TrustLogin = () => {
         setErrorMessage("A network error occurred. Please try again.");
       }
     }
+    finally{
+      setLoading(false)
+    }
   }
 
   return (
@@ -70,11 +74,14 @@ const TrustLogin = () => {
         <Typography variant="h4" className="trust-login-title">
           Trust Login
         </Typography>
-        {errorMessage && 
+        {loading && <div style={{fontSize: "22px", textAlign: "center", color: "blue"}}>Loading...</div>}
+        {!loading && errorMessage && 
           <Typography variant='h5' className="error-message" >
             {errorMessage}
+
           </Typography>
         }
+
         <form onSubmit={handleSubmit}>
           <TextField
             label="Email"
