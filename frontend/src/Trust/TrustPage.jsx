@@ -348,7 +348,7 @@ function TrustPage() {
 
     try {
       const response = await axios.post(
-        'http://localhost:4000/api/trust/addtrust',
+        `${process.env.REACT_APP_API_URL}/api/trust/addtrust`,
         formDataToSend,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );

@@ -33,7 +33,7 @@ const TrustLogin = () => {
         return;
       }
 
-      let response = await axios.post('http://localhost:4000/api/trust/logintrust',
+      let response = await axios.post(`${process.env.REACT_APP_API_URL}/api/trust/logintrust`,
         formTrust, 
         {withCredentials: true}
       )

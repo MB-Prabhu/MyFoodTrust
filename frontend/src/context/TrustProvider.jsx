@@ -6,7 +6,7 @@ export const TrustContext = createContext()
 const TrustProvider = (props) => {
     let getTotalTrust = async ()=>{
        try{
-        let {data} = await axios.get('http://localhost:4000/api/admin/getnooftrusts', {
+        let {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/getnooftrusts`, {
             withCredentials: true
         })
 
@@ -23,7 +23,7 @@ const TrustProvider = (props) => {
 
     let getTotalTransactions = async ()=>{
         try{
-            let {data} = await axios.get('http://localhost:4000/api/admin/getnooftransactions', {
+            let {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/getnooftransactions`, {
                 withCredentials: true
             })
             let totalTransactions = data?.data
@@ -37,7 +37,7 @@ const TrustProvider = (props) => {
 
     let getTotalUser = async ()=>{
         try{
-            let {data} = await axios.get('http://localhost:4000/api/admin/getnoofusers', {
+            let {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/getnoofusers`, {
                 withCredentials: true
             })
             let totalTransactions = data?.data

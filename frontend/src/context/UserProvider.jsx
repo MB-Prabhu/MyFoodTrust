@@ -5,7 +5,7 @@ export const UserContext = createContext()
 const UserProvider = ({children}) => {
 
     let getProfileData = async ()=>{
-       let {data} = await axios.get('http://localhost:4000/api/user/getuserprofile', {
+       let {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/getuserprofile`, {
         withCredentials: true
        })
 

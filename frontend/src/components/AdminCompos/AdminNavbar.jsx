@@ -11,7 +11,7 @@ const AdminNavbar = ({sidebarOpen, setSidebarOpen}) => {
 
   let handleLogout = async ()=>{
     try{
-      let {data} = await axios.post("http://localhost:4000/api/admin/adminlogout", {}, {withCredentials: true})
+      let {data} = await axios.post(`${process.env.REACT_APP_API_URL}/api/admin/adminlogout`, {}, {withCredentials: true})
       if(data.success){
         navigate('/')
       }
@@ -20,7 +20,7 @@ const AdminNavbar = ({sidebarOpen, setSidebarOpen}) => {
       }
   
       // WITHOUT AXIOS 
-      //  let res = await fetch("http://localhost:4000/api/admin/adminlogout", 
+      //  let res = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/adminlogout`, 
       //   {method: 'POSt',
       //     credentials: 'include'
       //   })

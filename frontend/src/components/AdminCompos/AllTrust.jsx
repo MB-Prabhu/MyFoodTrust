@@ -48,7 +48,7 @@ const AllTrust = () => {
 
 
     
-    let [apidata, setApidata] = useGetAdm(`http://localhost:4000/api/admin/gettrusts/1/10`)
+    let [apidata, setApidata] = useGetAdm(`${process.env.REACT_APP_API_URL}/api/admin/gettrusts/1/10`)
 
 
     let handleSearch = ()=>{
@@ -59,7 +59,7 @@ const AllTrust = () => {
     let getSearchValue = async ()=>{
         try{
             setLoading(true)
-            let {data} = await axios.get(`http://localhost:4000/api/admin/searchtrust?search=${searchFinal}&page=${PageNo}`,  {
+            let {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/searchtrust?search=${searchFinal}&page=${PageNo}`,  {
                 withCredentials: true
             })
             setHasNext(true)

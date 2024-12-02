@@ -15,7 +15,7 @@ const Inbox = ({setShowInbox}) => {
     let getNotification = async()=>{
         setLoading(true)
         try{
-            let {data} = await axios.get('http://localhost:4000/api/user/getnotification', {
+            let {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/getnotification`, {
                 withCredentials: true
             })
     

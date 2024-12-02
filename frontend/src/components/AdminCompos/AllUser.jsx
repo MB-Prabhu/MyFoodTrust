@@ -43,7 +43,7 @@ const AllUser = () => {
     const [loading, setLoading] = useState(false)
     const [errorMessage, setErrorMessage] = useState(null)
 
-    let [apidata, setApidata] = useGetAdm(`http://localhost:4000/api/admin/getusers/1/10`)
+    let [apidata, setApidata] = useGetAdm(`${process.env.REACT_APP_API_URL}/api/admin/getusers/1/10`)
 
     let handleSearch = ()=>{
 
@@ -59,7 +59,7 @@ const AllUser = () => {
     let getSearchValue = async ()=>{
         try{
             setLoading(true)
-            let {data} = await axios.get(`http://localhost:4000/api/admin/searchuser?search=${searchFinal}&page=${PageNo}`,  {
+            let {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/searchuser?search=${searchFinal}&page=${PageNo}`,  {
                 withCredentials: true
             })
 

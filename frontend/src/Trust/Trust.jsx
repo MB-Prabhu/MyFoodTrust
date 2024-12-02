@@ -96,7 +96,7 @@ const Inbox = ({ inboxMessages , setInboxMessages}) => {
   
   let acceptOrder = async (id)=>{
    try{
-    let {data} = await axios.post(`http://localhost:4000/api/trust/acceptfoodorder/${id}`, {} ,{
+    let {data} = await axios.post(`${process.env.REACT_APP_API_URL}/api/trust/acceptfoodorder/${id}`, {} ,{
       withCredentials: true
   })
 
@@ -163,7 +163,7 @@ const Trust = () => {
   let getRegisteredOrders = async ()=>{
     setLoading(true)
    try{
-    let {data} = await axios.get(`http://localhost:4000/api/trust/getfoodorder`, {
+    let {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/trust/getfoodorder`, {
       withCredentials: true
     })
     
@@ -189,7 +189,7 @@ const Trust = () => {
     setError('');
     try {
       const { data } = await axios.get(
-        `http://localhost:4000/api/trust/searchuser?search=${searchTerm}&page=${PageNo}`,
+        `${process.env.REACT_APP_API_URL}/api/trust/searchuser?search=${searchTerm}&page=${PageNo}`,
         {  withCredentials: true }
       );
       setUsers(data?.data);

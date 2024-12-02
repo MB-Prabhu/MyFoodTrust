@@ -72,7 +72,7 @@ function UserPage() {
 
     try {
       const response = await axios.post(
-        'http://localhost:4000/api/user/registeruser',
+        `${process.env.REACT_APP_API_URL}/api/user/registeruser`,
         formDataToSend,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );

@@ -11,7 +11,7 @@ const TrustProfile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/trust/gettrustprofile', {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/trust/gettrustprofile`, {
           withCredentials: true,
         });
         setProfile(response.data.user);

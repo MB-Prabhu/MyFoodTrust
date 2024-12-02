@@ -76,7 +76,7 @@ const Users = () => {
 
   let handleLogout = async () => {
     try {
-      let { data } = await axios.post('http://localhost:4000/api/user/logoutuser', {}, {
+      let { data } = await axios.post(`${process.env.REACT_APP_API_URL}/api/user/logoutuser`, {}, {
         withCredentials: true
       })
       if (data.msg) {
@@ -113,7 +113,7 @@ const Users = () => {
   let getTotalTrust = async ()=>{
     setTotalTrustLoading(true)
     try{
-       let {data} = await axios.get(`http://localhost:4000/api/user/getnooftrust`, {
+       let {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/getnooftrust`, {
           withCredentials: true
         })
 
@@ -147,7 +147,7 @@ const Users = () => {
 
   let createFoodOrder = async ()=>{
     try{
-      let {data} = await axios.post('http://localhost:4000/api/user/foodRegister',
+      let {data} = await axios.post(`${process.env.REACT_APP_API_URL}/api/user/foodRegister`,
           createFoodDetail,    
       {
         withCredentials: true
@@ -173,7 +173,7 @@ const Users = () => {
   let getTrust = async  ()=>{
     try{
   setLoading(true)
-  let { data } = await axios.get('http://localhost:4000/api/user/searchtrust?search=', {
+  let { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/searchtrust?search=`, {
     withCredentials: true
   })
   if(data?.data){
@@ -199,7 +199,7 @@ const [searchError, setSearchError] = useState("")
 const handleSearch = async () => {
   try {
     setLoading(true)
-    let { data } = await axios.get(`http://localhost:4000/api/user/searchtrust?search=${searchQuery}&page=${PageNo}`, {
+    let { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/searchtrust?search=${searchQuery}&page=${PageNo}`, {
       withCredentials: true,
     });
      if(data?.data){
