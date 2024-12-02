@@ -97,6 +97,7 @@ const Inbox = ({ inboxMessages , setInboxMessages}) => {
     display: "flex",
     flexDirection: "column",
     gap: "5px",
+    marginTop: "5px",
     backgroundColor: "#ffffff",
     boxShadow: "5px 5px 5px #0000007d"
   };
