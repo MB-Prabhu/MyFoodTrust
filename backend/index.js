@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 const cors = require("cors")
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: process.env.CLIENT_URL || 'http://localhost:3000',
     credentials: true
 }))
 
@@ -38,12 +38,16 @@ app.use((err, req, res, next) => {
     console.error("Unhandled error:", err); // Log unhandled errors
     res.status(500).json({ error: true, message: "An unexpected error occurred: " + err.message, success: false });
   });
-  
-// mongoose.connect('mongodb://127.0.0.1:27017/Trust').then((data) => {
-//     console.log("Mongodb Connected Succesfully")
-// }).catch((err) => {
-//     console.log(err)
-// })
+
+  // Serve static files from the React build folder
+app.use(express.static(path.join(__dirname, "../client/build")));
+
+// Catch-all route for React
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+});
+
+
 let PORT = process.env.PORT || 5000;
 connectDb().then(()=>{
     console.log("DB connected successfully")
