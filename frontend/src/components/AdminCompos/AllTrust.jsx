@@ -45,7 +45,7 @@ const AllTrust = () => {
 
 
     
-    let [apidata, setApidata] = useGetAdm(`${process.env.REACT_APP_API_URL}/api/admin/gettrusts/1/10`)
+    let [apidata] = useGetAdm(`${process.env.REACT_APP_API_URL}/api/admin/gettrusts/1/10`)
 
 
     let handleSearch = ()=>{

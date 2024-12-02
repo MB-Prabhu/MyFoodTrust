@@ -29,11 +29,10 @@ function UserPage() {
   });
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
 
   const handleChange = (e) => {
-    const { name, value, type, files } = e.target;
+    const { name, value, files } = e.target;
 
   if (name === 'image') {
     const file = files[0];
@@ -46,16 +45,13 @@ function UserPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true)
 
     if (formData.phoneNumber.length !== 10){
-        setIsSubmitting(false)
         setErrorMessage('Phone number should be 10 digits only');
         return;
       }
 
     if (formData.password !== formData.confirmPassword) {
-    setIsSubmitting(false)
       setErrorMessage('Passwords do not match!');
       return;
     }
@@ -96,9 +92,6 @@ function UserPage() {
       console.log(error.message)
       console.log(error.response.data.message)
       setErrorMessage(error.response?.data?.error || 'Something went wrong!');
-    }
-    finally{
-      setIsSubmitting(false)
     }
   };
 

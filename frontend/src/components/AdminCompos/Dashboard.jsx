@@ -22,31 +22,6 @@ const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   let navigate = useNavigate()
 
- let handleLogout = async ()=>{
-  try{
-    let {data} = await axios.post(`${process.env.REACT_APP_API_URL}/api/admin/adminlogout`, {}, {withCredentials: true})
-    if(data.success){
-      navigate('/')
-    }
-    else{
-      alert("admin is not loggedin")
-    }
-
-    // WITHOUT AXIOS 
-    //  let res = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/adminlogout`, 
-    //   {method: 'POSt',
-    //     credentials: 'include'
-    //   })
-    //  res =  await res.json()
-    //  console.log(res)
-    // admintoken
-  }
-  catch(err){
-    if(err.response){
-      console.log(err.response.data.message)
-    }
-  }
- }
 
 let [totalTrust, setTotalTrust]= useState(0);
 const [totalUser, setTotalUser] = useState(0)

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import { Menu } from 'lucide-react'
 import './Dash.css';
-import { useNavigate } from 'react-router-dom';
 import DisplaygetData from './DisplaygetData';
 import useGetAdm from './CustomHooks/useGetAdm';
 import InputSearch from './InputSearch';
@@ -16,7 +15,6 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const AllUser = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false)
-    let navigate = useNavigate()
 
     const [PageNo, setPageNo] = useState(1);
     const [hasNext, setHasNext] = useState(false);
@@ -42,7 +40,7 @@ const AllUser = () => {
     const [loading, setLoading] = useState(false)
     const [errorMessage, setErrorMessage] = useState(null)
 
-    let [apidata, setApidata] = useGetAdm(`${process.env.REACT_APP_API_URL}/api/admin/getusers/1/10`)
+    let [apidata] = useGetAdm(`${process.env.REACT_APP_API_URL}/api/admin/getusers/1/10`)
 
     let handleSearch = ()=>{
 
