@@ -16,7 +16,6 @@ let adminLogin = async (req, res)=>{
             validateAdmin(req)
             let {email, password} = req.body
             let {admintoken} = req.cookies
-            console.log(admintoken)
             if(admintoken){
                 let {_id} =  jwt.verify(admintoken, process.env.JWT_ADMIN_SECREAT_KEY)
                 if(_id){
@@ -95,7 +94,6 @@ let getTransactions = async (req, res)=>{
     try{
         let page = Number(req.params.page)
         let limit = parseInt(req.params.limit)
-        console.log(typeof limit)
         
         if(typeof limit !== "number"){
             throw new Error("limit should be a number")

@@ -16,23 +16,6 @@ let addTrusts=async(req,res)=>{
         await validateTrust(req)
         let {firstName,email, lastName, phone, password, confirmPassword,trustName,
              trustId, address, trustEmail,trustPhoneNumber}=req.body
-        //     //  console.log(req.files)  //09845723765-uploads/scrrenshot(10).png
-        // // in the place of image it should get the image's path , if the client is passing 
-        // // the image and not path, then here instead of image put image.path
-        // // if we are not using clusters we shoudl use upload or if we use cluster then we should upload_stream 
-       
-        // let result = await cloudinary.uploader.upload(req.file.path, {
-        //     folder: "TrustProfile",
-        //     // resource_type: "image",
-        //     // size: 300,
-        //     // crop: "scale"
-        // })
-
-        // fs.unlink(req.file.path, (err) => {
-        //     if (err) {
-        //         console.error("Error deleting file:", err);
-        //     }
-        // });
 
         let currentPassword = await bcrypt.hash(password,10)
 
