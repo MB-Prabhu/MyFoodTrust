@@ -10,13 +10,11 @@ const useGetAdm = (url) => {
             let {data} = await axios.get(url, {
                 withCredentials: true
             })
-        // console.log(data?.data)
         if(data?.data.length>0){
             setApidata(data.data)
         }
         }
         catch(err){
-            // console.error('Error Message:', err.message); // Logs the error message
             console.error('Error Response:', err.response?.data); 
         }
         
