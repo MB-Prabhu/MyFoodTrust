@@ -3,17 +3,6 @@ import ReactDOM from 'react-dom/client';
 // import './index.css';
 import App from './App.js';
 import reportWebVitals from './reportWebVitals';
-// import Dashboard from './Dashboard';
-// import SetPage from './SetPage';
-// import Users from './Users';
-
-// dont uncomment it 
-// import { Buffer } from 'buffer';
-// import process from 'process';
-// import 'crypto-browserify'; // For crypto module
-
-// window.Buffer = Buffer;
-// window.process = process;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
