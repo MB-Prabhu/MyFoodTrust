@@ -9,7 +9,6 @@ const TrustProvider = (props) => {
         let {data} = await axios.get('http://localhost:4000/api/admin/getnooftrusts', {
             withCredentials: true
         })
-        console.log(data) 
 
         let totalNoOfTrust = data?.data
         if(totalNoOfTrust || totalNoOfTrust==0){
@@ -27,7 +26,6 @@ const TrustProvider = (props) => {
             let {data} = await axios.get('http://localhost:4000/api/admin/getnooftransactions', {
                 withCredentials: true
             })
-            console.log(data)
             let totalTransactions = data?.data
             return totalTransactions
         }
@@ -42,7 +40,6 @@ const TrustProvider = (props) => {
             let {data} = await axios.get('http://localhost:4000/api/admin/getnoofusers', {
                 withCredentials: true
             })
-            console.log(data)
             let totalTransactions = data?.data
             return totalTransactions
         }

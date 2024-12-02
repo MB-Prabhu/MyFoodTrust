@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './components/AdminCompos/Dashboard';
-import SetPage from './SetPage'; // Assuming you have a settings page.
 import AllUser from './components/AdminCompos/AllUser';
 import AllTrust from './components/AdminCompos/AllTrust';
 import LoginPage from './components/LoginPage';
@@ -74,7 +73,6 @@ function App() {
           <AllTrust />
         </ProtectedRoute>}/>
 
-        {/* <Route path="/set" element={<SetPage />} /> */}
 
      <Route path='*' element={<PageNotFound />}/>
       </Routes>
