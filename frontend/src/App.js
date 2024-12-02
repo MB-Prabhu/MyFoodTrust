@@ -10,7 +10,6 @@ import UserPage from './Users/UserPage';
 import AdminPage from './components/AdminCompos/AdminPage';
 import TrustLogin from './Trust/TrustLogin';
 import UserLogin from './Users/UserLogin';
-import ContactUs from './components/ContactUs';
 import ProtectedRoute from './components/protectedRoutes/ProtectedRoute';
 import Trust from './Trust/Trust';
 import Transactions from './components/AdminCompos/Transactions';
@@ -42,9 +41,6 @@ function App() {
         <Route path="/notification" element={<ProtectedRoute requiredRole="user">
           <Inbox />
         </ProtectedRoute>} />
-
-        {/* <Route path="/contact" element={<ContactUs/>} /> */}
-
 
         <Route path="/trust" element={<TrustPage />} />
         <Route path="/trustlogin" element={<TrustLogin/>} />
