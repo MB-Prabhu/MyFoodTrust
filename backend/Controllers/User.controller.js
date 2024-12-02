@@ -98,7 +98,12 @@ let userLogin = async (req, res)=>{
         }
 
          let token = await jwt.sign({_id: isExists._id,  role: 'user'}, process.env.JWT_USER_SECREAT_KEY, {expiresIn: process.env.JWT_USER_TOKEN_EXPIRY})
-         res.cookie("userlogintoken", token, {expires: new Date(Date.now() + 20 * 500000)})
+         res.cookie("userlogintoken", token, {
+            expires: new Date(Date.now() + 20 * 500000),
+            httpOnly: true, 
+            secure: true,   
+            sameSite: 'None'
+        })
          res.status(200).json({msg: isExists.Name + " has loggedin", token: token , success: true})
     }
     catch(err){
