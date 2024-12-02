@@ -44,12 +44,12 @@ app.use((err, req, res, next) => {
 // }).catch((err) => {
 //     console.log(err)
 // })
-
+let PORT = process.env.PORT || 5000;
 connectDb().then(()=>{
     console.log("DB connected successfully")
 
 // should keep inside this inside "then" block
-app.listen(4000, () => {
-    console.log("Server running in the PORT 4000")
+app.listen(PORT, () => {
+    console.log(`Server running in the ${PORT}`)
 })
 }).catch(err=> console.log(err.message))
