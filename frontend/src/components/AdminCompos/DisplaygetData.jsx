@@ -16,7 +16,6 @@ const DisplaygetData = ({ _id, Name, email, address, phone, image, role, searche
     let {data} = await axios.delete(`http://localhost:4000/api/admin/delete/${userRole}/${id}`, {
       withCredentials: true
     })
-    console.log(data)
     if(data?.data){
       setDeleteErrorMsg(null)
       setUserDeleted(data?.data)

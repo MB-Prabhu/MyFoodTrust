@@ -44,10 +44,8 @@ const AllUser = () => {
     const [errorMessage, setErrorMessage] = useState(null)
 
     let [apidata, setApidata] = useGetAdm(`http://localhost:4000/api/admin/getusers/1/10`)
-    // console.log(apidata)
 
     let handleSearch = ()=>{
-        // setSearchFinal(searchValue)
 
         if (!searchValue.trim()) {
             setSearchFinal(""); 
@@ -61,11 +59,9 @@ const AllUser = () => {
     let getSearchValue = async ()=>{
         try{
             setLoading(true)
-            // console.log("ente")
             let {data} = await axios.get(`http://localhost:4000/api/admin/searchuser?search=${searchFinal}&page=${PageNo}`,  {
                 withCredentials: true
             })
-            console.log(data)
 
             setHasNext(true)
             if(data && data?.data && data.data.length>0){
@@ -75,7 +71,6 @@ const AllUser = () => {
                 setLoading(false)
             }
             else if(data.message){
-                console.log("hello")
                 setSearchedResult([])
                 setErrorMessage(data?.message)
                 setLoading(false)

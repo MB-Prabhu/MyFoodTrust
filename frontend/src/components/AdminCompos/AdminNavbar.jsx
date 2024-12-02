@@ -11,9 +11,7 @@ const AdminNavbar = ({sidebarOpen, setSidebarOpen}) => {
 
   let handleLogout = async ()=>{
     try{
-      console.log("logut generate")
       let {data} = await axios.post("http://localhost:4000/api/admin/adminlogout", {}, {withCredentials: true})
-      console.log(data)
       if(data.success){
         navigate('/')
       }

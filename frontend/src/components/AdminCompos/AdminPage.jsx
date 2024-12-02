@@ -20,13 +20,11 @@ function AdminPage() {
         e.preventDefault()
 
         if(!(formAdmin.email)){
-          console.log("email not")
           setErrorMessage("please enter the email") 
           return;
         }
   
         if(formAdmin.password.length<8){
-          console.log("passsword not")
           setErrorMessage("password must be atleast 8 characters") 
           return;
         }
@@ -43,7 +41,6 @@ function AdminPage() {
          else{
           setErrorMessage(response.data.message)
          }
-        console.log(response)
       }
       catch(err){
         if (err.response) {

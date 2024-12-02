@@ -19,18 +19,12 @@ const Dashboard = () => {
 
   let {getTotalTrust, getTotalUser, getTotalTransactions} = useContext(TrustContext)
 
-//   useEffect(()=>{
-//     getTotalTrust()
-// },[])
-  // console.log(getTotalTrust())
   const [sidebarOpen, setSidebarOpen] = useState(false)
   let navigate = useNavigate()
 
  let handleLogout = async ()=>{
   try{
-    console.log("logut generate")
     let {data} = await axios.post("http://localhost:4000/api/admin/adminlogout", {}, {withCredentials: true})
-    console.log(data)
     if(data.success){
       navigate('/')
     }
@@ -62,7 +56,6 @@ const [totalTransactions, setTotalTransactions] = useState(0)
 
  useEffect(()=>{
     getTotalTrust().then(res=> {
-      console.log(res)
       setTotalTrust(res)
     })
 
@@ -78,22 +71,7 @@ const [totalTransactions, setTotalTransactions] = useState(0)
   return (
     <div className="dashboard">
       {/* Sidebar */}
-      {/* <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
-        <div className="sidebar-header">
-          <h2>Dashboard</h2>
-          <button className="icon-button mobile-only" onClick={() => setSidebarOpen(false)}>
-            <ChevronDown />
-          </button>
-        </div>
-        <nav className="sidebar-nav">
-          <button className="nav-button" onClick={()=>navigate("/Home")}><Home /> Home</button>
-          <button className="nav-button" onClick={()=>navigate("/alluser")}><LayoutDashboard />User</button>
-          <button className="nav-button" onClick={()=>navigate("/alltrust")}><HandHeart />Trust</button>
-          <button className="nav-button"><User /> Profile</button>
-          <button className="nav-button" onClick={()=>navigate("/set")}><Settings /> Settings</button>
-          <button className="nav-button logout" onClick={()=> handleLogout()}><LogOut /> Logout</button>
-        </nav>
-      </aside> */}
+      
       <AdminNavbar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
       {/* Main Content */}

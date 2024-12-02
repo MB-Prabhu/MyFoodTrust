@@ -49,7 +49,6 @@ const AllTrust = () => {
 
     
     let [apidata, setApidata] = useGetAdm(`http://localhost:4000/api/admin/gettrusts/1/10`)
-    // console.log(apidata)
 
 
     let handleSearch = ()=>{
@@ -60,11 +59,9 @@ const AllTrust = () => {
     let getSearchValue = async ()=>{
         try{
             setLoading(true)
-            // console.log("ente")
             let {data} = await axios.get(`http://localhost:4000/api/admin/searchtrust?search=${searchFinal}&page=${PageNo}`,  {
                 withCredentials: true
             })
-            console.log(data)
             setHasNext(true)
             if(data && data?.data && data.data.length>0){
                 setSearchedResult(data?.data)

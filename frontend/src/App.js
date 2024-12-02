@@ -12,7 +12,6 @@ import TrustLogin from './Trust/TrustLogin';
 import UserLogin from './Users/UserLogin';
 import ProtectedRoute from './components/protectedRoutes/ProtectedRoute';
 import Trust from './Trust/Trust';
-import Transactions from './components/AdminCompos/Transactions';
 import TrustProvider from './context/TrustProvider';
 import Users from './Users/Users';
 import UserProvider from './context/UserProvider';
@@ -74,10 +73,6 @@ function App() {
         <Route path="/alltrust" element={<ProtectedRoute requiredRole="admin">
           <AllTrust />
         </ProtectedRoute>}/>
-
-        <Route path='/transaction' element={<ProtectedRoute requiredRole="admin">
-          <Transactions />
-        </ProtectedRoute>} />
 
         {/* <Route path="/set" element={<SetPage />} /> */}
 
