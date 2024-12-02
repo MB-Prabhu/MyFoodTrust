@@ -2,8 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { HandHeart , Menu,  } from 'lucide-react'
 import './Dash.css';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { TrustContext } from '../../context/TrustProvider';
 import AdminNavbar from './AdminNavbar';
 const data = [
@@ -20,7 +18,6 @@ const Dashboard = () => {
   let {getTotalTrust, getTotalUser, getTotalTransactions} = useContext(TrustContext)
 
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  let navigate = useNavigate()
 
 
 let [totalTrust, setTotalTrust]= useState(0);

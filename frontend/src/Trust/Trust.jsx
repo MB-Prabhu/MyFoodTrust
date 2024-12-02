@@ -113,7 +113,7 @@ const Inbox = ({ inboxMessages , setInboxMessages}) => {
   return (
     <>
       <h2 style={{ fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}>Inbox</h2>
-      {inboxMessages.map(({_id, fromUserId, noOfPeople, veg, address, createdAt, senderPhoneNumber, senderName}) => (
+      {inboxMessages.map(({_id, noOfPeople, veg, address, senderPhoneNumber, senderName}) => (
         <div key={_id} style={inboxMessageStyle}>
           <p>User Name: <span style={inboxSenderNameStyle}>{senderName}</span></p>
           <p>Phone no: <span style={inboxSenderPhoneStyle}>{senderPhoneNumber}</span></p>

@@ -6,8 +6,8 @@ import dd from './Displaydata.module.css'
 
 const DisplaygetData = ({ _id, Name, address, phone, image, role, searchedResult, setSearchedResult}) => {
 
-  const [userDeleted, setUserDeleted] = useState(null)
-  const [deleteErrorMsg, setDeleteErrorMsg] = useState(null)
+  // const [userDeleted, setUserDeleted] = useState(null)
+  // const [deleteErrorMsg, setDeleteErrorMsg] = useState(null)
 
  let deleteUser = async (userRole, id)=>{
 
@@ -16,8 +16,8 @@ const DisplaygetData = ({ _id, Name, address, phone, image, role, searchedResult
       withCredentials: true
     })
     if(data?.data){
-      setDeleteErrorMsg(null)
-      setUserDeleted(data?.data)
+      // setDeleteErrorMsg(null)
+      // setUserDeleted(data?.data)
       setSearchedResult(searchedResult.filter(ele=> ele._id !== data?.data._id))
     }
   }
