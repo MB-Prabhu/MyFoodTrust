@@ -15,6 +15,7 @@ const UserLogin = () => {
   })
 
   const [errorMessage, setErrorMessage] = useState("")
+  const [loading, setLoading] = useState(false)
 
   let handleChange = ({target: {name, value}}) => {
     setFormUser({...formUser, [name]: value})
@@ -23,7 +24,7 @@ const UserLogin = () => {
   let handleSubmit = async (e) => {
     try {
       e.preventDefault()
-
+      setLoading(true)
       if (!(formUser.email)) {
         setErrorMessage("Please enter the email") 
         return;
@@ -55,6 +56,9 @@ const UserLogin = () => {
         setErrorMessage("A network error occurred. Please try again.");
       }
     }
+    finally{
+      setLoading(false)
+    }
   }
 
   return (
@@ -67,7 +71,8 @@ const UserLogin = () => {
       <Typography variant="h4" className="trust-login-title">
         User Login
       </Typography>
-      {errorMessage && <div style={{fontSize: "22px", textAlign: "center", color: "red"}}>{errorMessage}</div>}
+      {loading && <div style={{fontSize: "22px", textAlign: "center", color: "blue"}}>Loading...</div>}
+      {!loading && errorMessage && <div style={{fontSize: "22px", textAlign: "center", color: "red"}}>{errorMessage}</div>}
       <form onSubmit={handleSubmit}>
         <TextField
           label="Email"
