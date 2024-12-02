@@ -18,7 +18,7 @@
       "sourceType": "module"
     },
     "rules": {
-      "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }, { "varsIgnorePattern": "userDeleted|deleteErrorMsg" }],
+      "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
       "react/react-in-jsx-scope": "off",
        "react/prop-types": "off"
     },

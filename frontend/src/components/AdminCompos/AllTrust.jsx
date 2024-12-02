@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import {  Menu} from 'lucide-react'
 import './Dash.css';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import useGetAdm from './CustomHooks/useGetAdm';
 import DisplaygetData from './DisplaygetData';
@@ -24,7 +23,6 @@ const AllTrust = () => {
     const [loading, setLoading] = useState(false)
     const [errorMessage, setErrorMessage] = useState(null)
 
-    let navigate = useNavigate()
 
 
     
