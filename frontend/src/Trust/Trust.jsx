@@ -195,7 +195,7 @@ const Trust = () => {
       setUsers(data?.data);
       setHasNext(data?.data.length < dataLimitPerPage ?true: false)
     } catch (err) {
-      console.log(err?.response?.data?.message)
+      // console.log(err?.response?.data?.message)
       setError( err?.response?.data?.message || 'Failed to fetch users. Please try again.');
     } finally {
       setLoading(false);
