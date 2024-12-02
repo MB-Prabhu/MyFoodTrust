@@ -47,7 +47,7 @@ const TrustLogin = () => {
     } catch (err) {
       if (err.response) {
         console.log("Backend error:", err.response.data);
-        if(err.response.data.message == "Operation `trusts.findOne()` buffering timed out after 10000ms"){
+        if(err.response.data.message === "Operation `trusts.findOne()` buffering timed out after 10000ms"){
           setErrorMessage("please refresh the page and try again")
         }
         else{

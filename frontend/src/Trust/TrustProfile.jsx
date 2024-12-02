@@ -167,17 +167,17 @@ const TrustProfile = () => {
     </div>
   );
 
-  const DocumentsContent = () => (
-    <div>
-      <p>Document management features coming soon...</p>
-    </div>
-  );
+  // const DocumentsContent = () => (
+  //   <div>
+  //     <p>Document management features coming soon...</p>
+  //   </div>
+  // );
 
-  const SettingsContent = () => (
-    <div>
-      <p>Profile settings and preferences coming soon...</p>
-    </div>
-  );
+  // const SettingsContent = () => (
+  //   <div>
+  //     <p>Profile settings and preferences coming soon...</p>
+  //   </div>
+  // );
 
   return (
     <div>

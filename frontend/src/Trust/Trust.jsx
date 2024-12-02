@@ -46,7 +46,7 @@ const UserCard = ({ user }) => {
   return (
     <div style={userCardStyle}>
       <img
-        src={user?.image?.url != "N/A" ? user?.image?.url : noProfileImage ||'/placeholder.svg'}
+        src={user?.image?.url !== "N/A" ? user?.image?.url : noProfileImage ||'/placeholder.svg'}
         alt={user.name}
         style={avatarStyle}
       />
@@ -101,7 +101,7 @@ const Inbox = ({ inboxMessages , setInboxMessages}) => {
 
   let finalData = data?.data
   if(finalData){
-     let remainingMessages = inboxMessages.filter(({_id})=> _id != finalData._id )
+     let remainingMessages = inboxMessages.filter(({_id})=> _id !== finalData._id )
       setInboxMessages(remainingMessages)
   }
    }
@@ -147,13 +147,13 @@ const Trust = () => {
   let dataLimitPerPage = 10;
 
   let handlePageNo = (action)=>{
-      if(action == "prev"){
+      if(action === "prev"){
         if(PageNo>1){
           setPageNo((p)=> p-1)
         }
       }
 
-      if(action == "next"){
+      if(action === "next"){
         setPageNo((p)=> p+1)
       }
   }

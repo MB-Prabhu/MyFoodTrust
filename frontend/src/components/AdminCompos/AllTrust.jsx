@@ -32,13 +32,13 @@ const AllTrust = () => {
   let dataLimitPerPage = 10;
 
   let handlePageNo = (action)=>{
-      if(action == "prev"){
+      if(action === "prev"){
         if(PageNo>1){
           setPageNo((p)=> p-1)
         }
       }
 
-      if(action == "next"){
+      if(action === "next"){
         setPageNo((p)=> p+1)
       }
   }

@@ -11,7 +11,6 @@ import { UserContext } from '../context/UserProvider'
 
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-// import { IconButton } from '@mui/material';
 
 
 const Users = () => {
@@ -93,13 +92,13 @@ const Users = () => {
   let dataLimitPerPage = 10;
 
   let handlePageNo = (action)=>{
-      if(action == "prev"){
+      if(action === "prev"){
         if(PageNo>1){
           setPageNo((p)=> p-1)
         }
       }
 
-      if(action == "next"){
+      if(action === "next"){
         setPageNo((p)=> p+1)
       }
   }
@@ -137,7 +136,7 @@ const Users = () => {
       setSelectedTrust((prev)=> [...prev, id])
     }
     else if(selectedTrust.includes(id) && !checked){
-      let removePreferedTrust = selectedTrust.filter(ele=> ele != id)
+      let removePreferedTrust = selectedTrust.filter(ele=> ele !== id)
       setSelectedTrust(removePreferedTrust)
     }
   }
@@ -151,7 +150,7 @@ const Users = () => {
       })
       if(data?.data){
         let foodstatus = data?.msg
-        setSuccessfullCreated(foodstatus=="food created" ? true : false)
+        setSuccessfullCreated(foodstatus==="food created" ? true : false)
         setTimeout(() => {
           setSuccessfullCreated(false)
         }, 2000);
@@ -356,7 +355,7 @@ useEffect(()=>{
   {trusts.length > 0 && (
     trusts.map((trust, index) => (
       <li key={index} className="trust-item1">
-        <img src={trust?.image?.url != "N/A" ? trust.image.url : noTrustImage} alt={trust.name} className="trust-image1" />
+        <img src={trust?.image?.url !== "N/A" ? trust.image.url : noTrustImage} alt={trust.name} className="trust-image1" />
         <div className='user-detail1'>
         <h3 className="trust-name1">{trust.trustName}</h3>
         <p className='user-phone-title'>Phone: <span>{trust.trustPhoneNumber}</span></p>

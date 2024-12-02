@@ -18,7 +18,7 @@ const DisplaygetData = ({ _id, Name, address, phone, image, role, searchedResult
     if(data?.data){
       setDeleteErrorMsg(null)
       setUserDeleted(data?.data)
-      setSearchedResult(searchedResult.filter(ele=> ele._id != data?.data._id))
+      setSearchedResult(searchedResult.filter(ele=> ele._id !== data?.data._id))
     }
   }
 catch(err){
@@ -31,7 +31,7 @@ catch(err){
      <div className={dd.card} key={_id}>
 
           <div className={dd.imgContainer}>
-              <img src={image.url!="N/A" ? image.url: "https://th.bing.com/th/id/OIP.5uW6Y-lSAO-logZJQosljAHaHa?w=188&h=188&c=7&r=0&o=5&dpr=1.6&pid=1.7"} alt="" style={{width: "100px", height: "100px"}}/>
+              <img src={image.url!=="N/A" ? image.url: "https://th.bing.com/th/id/OIP.5uW6Y-lSAO-logZJQosljAHaHa?w=188&h=188&c=7&r=0&o=5&dpr=1.6&pid=1.7"} alt="" style={{width: "100px", height: "100px"}}/>
           </div>
 
           <div className={dd.personalDetail}>
