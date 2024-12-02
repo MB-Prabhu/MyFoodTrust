@@ -34,7 +34,6 @@ const Inbox = ({setShowInbox}) => {
     useEffect(()=>{
         getNotification()
     }, [])
-    console.log(notifications)
 
     let handleRedirect = ()=>{
         navigate('/userhome')
@@ -51,9 +50,6 @@ const Inbox = ({setShowInbox}) => {
                 </ul>
                </div>
         </nav>
-
-{/* {!loading && !notifications.length>0 && <div style={{fontSize: "22px", fontWeight: "500"}} >no notifications so far...</div>} */}
-
 
        {!loading && !notifications.length>0 && <h1 className={styles.notificaitonTitle}>Notifications</h1> }
 

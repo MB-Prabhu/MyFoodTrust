@@ -40,7 +40,6 @@ function UserPage() {
     setFormData({ ...formData, image: file });
     setImagePreview(URL.createObjectURL(file));
   } else {
-    // console.log(value)
     setFormData({ ...formData, [name]: value });
   }
 }

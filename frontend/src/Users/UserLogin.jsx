@@ -7,7 +7,7 @@ import UserloginNavbar from './UserloginNavbar';
 const UserLogin = () => {
   let navigate = useNavigate()
   // sending the cookie name as "userlogintoken" 
-  // so when youre working with login for user use the below line once you fetched the api
+  // so when working with login for user use the below line to check the token
   // document.cookie = `userlogintoken=${response.data.token}; path=/;`;
   const [formUser, setFormUser] = useState({
     email: "",
