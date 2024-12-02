@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid, Card, Typography, Button, Box } from "@mui/material";
 import MainNavbar from "./MainNavbar";
-// import admin from '../src/../../public/admn.jpeg'
 import user from '../loginimg/user_img.jpg'
 import trust from '../loginimg/trust_img.jpg'
 import admin from '../loginimg/admin.jpg'
