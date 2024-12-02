@@ -17,24 +17,10 @@ let userRegistration = async(req, res)=>{
             await validateUser(req)
             let {Name,email, phone, password, confirmPassword, address} = req.body
 
-        //    if(req.file){
-            // const result = await cloudinary.uploader.upload(req.file.path, {
-            //     folder: "UserProfile", // Subfolder for user profile images
-            //   });
-
-            // fs.unlink(req.file.path, (err) => {
-            //     if (err) {
-            //         console.error("Error deleting file:", err);
-            //     }
-            // });
-        //    }
             let hashedPassword = await bcrypt.hash(password,10)
 
-            // for cluster if youre using cluster
-            // console.log(req.file)
             let imageData = {};
             if (req.file && req.file.buffer) {
-                    console.log("file detected")
               // Upload image using Cloudinary's upload_stream
               const uploadPromise = new Promise((resolve, reject) => {
                 const stream = cloudinary.uploader.upload_stream(
@@ -52,14 +38,12 @@ let userRegistration = async(req, res)=>{
               });
         
               const result = await uploadPromise;
-              console.log("uploading imge")
               imageData = {
                 public_id: result.public_id,
                 url: result.secure_url,
               };
             }
 
-            console.log(imageData)
 
             let newUser = new UserModel({
                 Name, 
@@ -68,11 +52,7 @@ let userRegistration = async(req, res)=>{
                 address,
                 password: hashedPassword,
                 confirmPassword: hashedPassword,
-                // image:{
-                //     public_id: result.public_id,
-                //     url: result.secure_url
-                // },
-                // for cluster usage
+    
                 image: imageData
             })
 
@@ -132,7 +112,6 @@ let userLogout = async (req, res)=>{
 }
 
 let getTrusts=async(req,res,next)=>{
-    // console.log("working")
     let limit = (req.params.limit > 20 ? 10 : req.params.limit) || 10
     let page = req.params.page || 1
     let skip = (page-1) * limit
@@ -151,9 +130,6 @@ let foodRegister = async (req, res)=>{
     try{
         let user = req.user
         let {fromUserId, noOfPeople, veg, preferred, acceptedBy} = req.body
-            // console.log(user)
-            console.log(noOfPeople)
-            console.log("type of noOfpeople",typeof noOfPeople)
         if(!noOfPeople){
             throw new Error("Atleast it should be afford to one person")
         }
@@ -182,7 +158,6 @@ let searchTrust = async (req, res)=>{
         let skip = (page-1) * limit
     
         let totalDocuments = await TrustModel.countDocuments();
-        // console.log(totalDocuments)
 
         let totalPages = Math.ceil(totalDocuments / limit);
 
@@ -192,10 +167,8 @@ let searchTrust = async (req, res)=>{
 
         const regex = new RegExp(search, "i"); // 'i' makes it case-insensitive
 
-        // Find documents where the `name` field matches the regex
         const data = await TrustModel.find({ trustName: { $regex: regex } }).skip(skip).limit(limit).select(allowedFields)
        
-        // let data = await TrustModel.find({trustName: {$regex: search, $options: "i"}}).skip(skip).limit(limit)
     
         if(!data.length>0){
             throw new Error("No Trusts Available")
