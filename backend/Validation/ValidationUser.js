@@ -11,8 +11,6 @@ const validateTrust = async (req)=>{
       let isExists = await Trust.findOne({$or: [{email: email}, {phone: phone}, {trustEmail: trustEmail}, {trustPhoneNumber: trustPhoneNumber}]})
 
       if(isExists){
-        console.log(isExists)
-        console.log("user is already there")
         throw new Error("User Already registered")
       }
 
@@ -23,7 +21,6 @@ const validateTrust = async (req)=>{
       if(password!==confirmPassword){
         throw new Error("Password is not matching with confirm Password")
       }
-      console.log("no problem")
 }
 
 let validateUser = async (req, res)=>{
@@ -34,7 +31,6 @@ let validateUser = async (req, res)=>{
  let isExists = await UserModel.findOne({$or: [{email: email}, {phone: phone}]})
 
   if(isExists){
-    console.log("user is already there")
         throw new Error("User Already registered")
   }
 
@@ -49,7 +45,6 @@ let validateUser = async (req, res)=>{
   if(password!=confirmPassword){
     throw new Error("Password is not matching with confirm Password")
   }
-  console.log("no problem")
 }
 
 let validateAdmin = async (req)=>{
