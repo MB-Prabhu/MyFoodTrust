@@ -44,7 +44,6 @@ const TrustLogin = () => {
       } else {
         setErrorMessage(response.data.message)
       }
-      console.log(response)
     } catch (err) {
       if (err.response) {
         console.log("Backend error:", err.response.data);

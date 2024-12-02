@@ -169,7 +169,6 @@ const Trust = () => {
     
     let finalData = data?.data
     if(finalData.length>0){
-      console.log(finalData)
       setInboxMessages(finalData)
     }
    }

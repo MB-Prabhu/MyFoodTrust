@@ -46,7 +46,6 @@ const Navbar = () => {
         {},
         { withCredentials: true }
       );
-      console.log(data);
       if (data) {
         navigate('/'); //navigate to home
       } else {
