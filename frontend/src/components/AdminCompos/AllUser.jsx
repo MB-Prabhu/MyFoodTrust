@@ -77,7 +77,6 @@ const AllUser = () => {
             }
         }
         catch(err){
-            console.log(err.response)
         console.log(err.response.data.message)
         setErrorMessage(err.response.data.message)
         }

@@ -74,7 +74,6 @@ const AllTrust = () => {
             }
         }
         catch(err){
-            console.log(err.message)
             console.log(err?.response.data?.message)
             setErrorMessage(err?.response.data?.message)
         }
