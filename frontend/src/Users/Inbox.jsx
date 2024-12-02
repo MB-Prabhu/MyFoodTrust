@@ -1,11 +1,10 @@
-import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios'
 import styles from './Notifications.module.css';
 
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Inbox = ({setShowInbox}) => {
+const Inbox = () => {
 
     const navigate = useNavigate()
 
@@ -57,7 +56,7 @@ const Inbox = ({setShowInbox}) => {
         
         <div className={styles.subContainersupport}>
         <div className={styles.subContainer}>
-            {!loading && notifications && notifications.length>0 && notifications.map(({acceptedTrustName, acceptedTrustPhoneNumber, acceptedBy, _id, veg, noOfPeople})=>(
+            {!loading && notifications && notifications.length>0 && notifications.map(({acceptedTrustName, acceptedTrustPhoneNumber, _id, veg, noOfPeople})=>(
                 <div key={_id} className={styles.notificationCard}>
                         <p className={styles.orderid}>Order id: <span style={{fontSize: "14px"}}>{_id}</span></p>
                         <div className={styles.userdetails}>

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Dash.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Bell, ChevronDown, Home, LayoutDashboard,HandHeart , LogOut, Menu, Settings, User, Rss } from 'lucide-react'
+import { ChevronDown, Home, LayoutDashboard,HandHeart , LogOut } from 'lucide-react'
 
 const AdminNavbar = ({sidebarOpen, setSidebarOpen}) => {
 //   const [sidebarOpen, setSidebarOpen] = useState(false)

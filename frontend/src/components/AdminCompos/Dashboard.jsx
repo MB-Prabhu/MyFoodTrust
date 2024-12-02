@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { Bell, ChevronDown, Home, LayoutDashboard,HandHeart , LogOut, Menu, Settings, User, Rss } from 'lucide-react'
+import { HandHeart , Menu,  } from 'lucide-react'
 import './Dash.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';

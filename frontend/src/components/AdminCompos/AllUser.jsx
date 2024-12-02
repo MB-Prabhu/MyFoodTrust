@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { Bell, ChevronDown, Home, LayoutDashboard, HandHeart, LogOut, Menu, Settings, User } from 'lucide-react'
+import { Menu } from 'lucide-react'
 import './Dash.css';
 import { useNavigate } from 'react-router-dom';
 import DisplaygetData from './DisplaygetData';
@@ -10,7 +10,6 @@ import axios from 'axios';
 import AdminNavbar from './AdminNavbar';
 import { IconButton } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { Button, outlinedInputClasses } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 

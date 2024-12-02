@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { Button } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import dd from './Displaydata.module.css'
 
-const DisplaygetData = ({ _id, Name, email, address, phone, image, role, searchedResult, setSearchedResult}) => {
+const DisplaygetData = ({ _id, Name, address, phone, image, role, searchedResult, setSearchedResult}) => {
 
   const [userDeleted, setUserDeleted] = useState(null)
   const [deleteErrorMsg, setDeleteErrorMsg] = useState(null)

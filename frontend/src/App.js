@@ -14,7 +14,6 @@ import Trust from './Trust/Trust';
 import TrustProvider from './context/TrustProvider';
 import Users from './Users/Users';
 import UserProvider from './context/UserProvider';
-import Navbar from './Trust/Navbar';
 import TrustProfile from './Trust/TrustProfile';
 import './index.css'
 import PageNotFound from './components/PageNotFound';

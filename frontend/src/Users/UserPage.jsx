@@ -44,7 +44,6 @@ function UserPage() {
   }
 }
 
- 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true)

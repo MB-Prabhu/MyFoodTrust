@@ -5,12 +5,10 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
 import './User.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { UserContext } from '../context/UserProvider'
-import Inbox from './Inbox'
 
-import { Button, outlinedInputClasses } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 // import { IconButton } from '@mui/material';
@@ -38,7 +36,6 @@ const Users = () => {
   const [isVeg, setIsVeg] = useState(true)
   const [totalTrust, setTotalTrust] = useState(null)
   const [totalTrustLoading, setTotalTrustLoading] = useState(false)
-  const [showInbox, setShowInbox] = useState(false)
   
   const [loading, setLoading] = useState(false)
   
@@ -153,7 +150,6 @@ const Users = () => {
         withCredentials: true
       })
       if(data?.data){
-        let resp = data?.data
         let foodstatus = data?.msg
         setSuccessfullCreated(foodstatus=="food created" ? true : false)
         setTimeout(() => {
