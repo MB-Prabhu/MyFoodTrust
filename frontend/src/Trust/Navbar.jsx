@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  const navigate = useNavigate(); // Hook to handle navigation
+  const navigate = useNavigate(); 
 
   const navbarStyle = {
     backgroundColor: '#007bff',
@@ -48,7 +48,7 @@ const Navbar = () => {
       );
       console.log(data);
       if (data) {
-        navigate('/'); // Programmatically navigate to home
+        navigate('/'); //navigate to home
       } else {
         alert('Trust is not logged in');
       }
