@@ -73,7 +73,7 @@ function UserPage() {
       );
 
       await setErrorMessage("")
-      setSuccessMessage(response.data.message || 'Registration successful!');
+      setSuccessMessage(response?.message || 'Registration successful!');
       setFormData({
         firstName: '',
         lastName: '',
@@ -90,7 +90,7 @@ function UserPage() {
     } catch (error) {
       console.log(error)
       console.log(error.message)
-      console.log(error.response.data.message)
+      // console.log(error.response?.data.message)
       setErrorMessage(error.response?.data?.error || 'Something went wrong!');
     }
   };

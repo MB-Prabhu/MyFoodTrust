@@ -52,6 +52,7 @@ const UserLogin = () => {
         let errorMsg = err.response?.data?.message
         setErrorMessage(errorMsg === "Operation `usermodels.findOne()` buffering timed out after 10000ms" ? "please try again sometime" : errorMsg);
       } else {
+        console.log(err)
         console.error("Network error:", err.message);
         setErrorMessage("A network error occurred. Please try again.");
       }
