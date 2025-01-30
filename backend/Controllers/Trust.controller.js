@@ -91,9 +91,9 @@ let loginTrusts = async (req, res)=>{
         
             res.cookie("authToken", token, {
                 expires: new Date(Date.now() + 20 * 500000),
-                httpOnly: true,
-                secure: true,   
-                sameSite: 'None'
+                // httpOnly: true,
+                // secure: true,   
+                // sameSite: 'None'
             }) //in 40min cookie will expire
             res.status(200).json({msg: isExist.firstName + " login Successfull", token: token, success: true })
     }
