@@ -7,7 +7,7 @@ const userAuth = async (req, res, next)=>{
     if(!userlogintoken){
         throw new Error("user is not loggedin")
     }
-    let decodedData = await jwt.verify(userlogintoken, process.env.JWT_USER_SECREAT_KEY)
+    let decodedData = jwt.verify(userlogintoken, process.env.JWT_USER_SECREAT_KEY)
     
     if(decodedData){
         let user = await UserModel.findOne({_id: decodedData._id})

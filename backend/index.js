@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 const cors = require("cors")
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: process.env.FRONTEND_URL,
     credentials: true
 })) 
 
@@ -40,12 +40,13 @@ app.use((err, req, res, next) => {
   });
 
   // Serve static files from the React build folder
-app.use(express.static(path.join(__dirname, "../client/build")));
+//   LATEST CHANGES I HAVE REMOVED THIS
+// app.use(express.static(path.join(__dirname, "../client/build")));
 
-// Catch-all route for React
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
-});
+// // Catch-all route for React
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+// });
 
 
 let PORT = process.env.PORT || 5000;

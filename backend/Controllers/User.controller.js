@@ -97,12 +97,14 @@ let userLogin = async (req, res)=>{
             throw new Error("password is not matching")
         }
 
-         let token = await jwt.sign({_id: isExists._id,  role: 'user'}, process.env.JWT_USER_SECREAT_KEY, {expiresIn: process.env.JWT_USER_TOKEN_EXPIRY})
+         let token = jwt.sign({_id: isExists._id,  role: 'user'}, process.env.JWT_USER_SECREAT_KEY, {expiresIn: process.env.JWT_USER_TOKEN_EXPIRY})
+        
          res.cookie("userlogintoken", token, {
             expires: new Date(Date.now() + 20 * 500000),
-            // httpOnly: true, 
-            // secure: true,   
-            // sameSite: 'None'
+            httpOnly: true, 
+                secure: process.env.NODE_ENV === "production" ,
+                sameSite: process.env.NODE_ENV === "production" ? 'none' : "lax" ,
+                maxAge: 1000 * 60 * 60 * 24 
         })
          res.status(200).json({msg: isExists.Name + " has loggedin", token: token , success: true})
     }

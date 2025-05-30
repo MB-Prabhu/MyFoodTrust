@@ -8,7 +8,7 @@ let adminAuth = async (req, res, next)=>{
            throw new Error("admin is not loggedIn")
         }
 
-        let {_id} = await jwt.verify(admintoken, process.env.JWT_ADMIN_SECREAT_KEY)
+        let {_id} = jwt.verify(admintoken, process.env.JWT_ADMIN_SECREAT_KEY)
         
         if(_id){
            let isAdminExists = await AdminModel.findOne({_id: _id})
