@@ -13,5 +13,5 @@ userRoute.post('/foodRegister', userAuth, foodRegister)
 userRoute.get('/searchtrust', userAuth, searchTrust)
 userRoute.get('/getuserprofile', userAuth, getUserProfile)
 userRoute.get('/getnotification', userAuth, getNotification)
-userRoute.get('/getnooftrust', userAuth, getNoOfTrusts)
+userRoute.get('/getnooftrust',userAuth, getNoOfTrusts)
 module.exports = userRoute
