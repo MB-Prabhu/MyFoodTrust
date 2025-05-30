@@ -12,4 +12,6 @@ let deletedSchema = new mongoose.Schema({
     }
 })
 
+deletedSchema.index({email:1})
+
 module.exports = mongoose.model("Deleteds", deletedSchema)

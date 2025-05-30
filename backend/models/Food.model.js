@@ -55,4 +55,6 @@ let FoodSchema = new mongoose.Schema({
     timestamps: true
 })
 
+FoodSchema.index({fromUserId:1})
+
 module.exports = mongoose.model("FoodModel", FoodSchema)

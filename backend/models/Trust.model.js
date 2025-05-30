@@ -71,6 +71,6 @@ let Trustschema= new mongoose.Schema({
     minimize: true
 })
 
-Trustschema.indexes({trustEmail: 1})
+Trustschema.index({trustEmail: 1, trustId:1})
 
 module.exports= mongoose.model("Trust",Trustschema);

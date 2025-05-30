@@ -47,6 +47,6 @@ const userSchema = new mongoose.Schema({
     }
 })
 
-userSchema.indexes({email: 1})
+userSchema.index({email: 1})
 
 module.exports = mongoose.model("UserModel", userSchema )
