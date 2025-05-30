@@ -10,7 +10,7 @@ function ProtectedRoute({ children , requiredRole }) {
     user: "/userlogin",     // path name for login page for user
     trust: "/trustlogin",   // path name for login page for trust
   };
-
+console.log(requiredRole)
     const checkAuth = () => {
 
       const roleToCookieName = {
@@ -27,7 +27,7 @@ function ProtectedRoute({ children , requiredRole }) {
       if (token) {
         const decodedToken = jwtDecode(token.split('=')[1]);
         if (decodedToken.role === requiredRole) {
-          return true; // Authorized
+          return false; 
         } else {
           navigate(roleToLoginPath[decodedToken.role]);
           return false;
